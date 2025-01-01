@@ -1,0 +1,18 @@
+The following CSS code snippet demonstrates an uncommon error related to the `calc()` function and percentage values:
+
+```css
+.container {
+  width: calc(50% + 20px);
+}
+```
+
+This code intends to make the container's width 50% of its parent's width plus an additional 20 pixels. However, if the parent element's width is not explicitly set, this calculation might not work as expected. This is because percentages depend on the parent's width, creating a circular dependency if the parent's width is also dependent on the child's calculated width.
+
+Another common mistake is using different units within a single calc function without proper type conversion leading to unexpected results.
+
+```css
+.element {
+  width: calc(100% + 20em);
+}
+```
+In this case, adding pixels and percentages directly within the `calc()` function can yield unexpected results, because `em` units are relative to the font size, not to the parent's width like percentages are.
